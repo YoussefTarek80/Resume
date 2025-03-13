@@ -8,7 +8,7 @@
 </template>
 <script setup>
 import education from '../../components/main/resume/education.vue'
-import experinces from '../../components/main/resume/experinces.vue'
+import experinces from '../../components/main/resume/experince.vue'
 import skills from '../../components/main/resume/skills.vue'
 </script>
 
