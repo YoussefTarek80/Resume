@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6 relative" >
+    <div class="px-8 relative" >
         <h1 class="text-4xl font-bold sm:mt-0 mt-10" data-aos="fade-left">Contact Me</h1>
         <div class="Form mt-20 flex flex-col gap-5 " data-aos="fade-up">
             <div class="flex gap-2 text-white z-10">

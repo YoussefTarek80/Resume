@@ -1,5 +1,5 @@
 <template>
-    <div class="px-6">
+    <div class="px-8">
         <h1 class="text-4xl font-bold sm:mt-0 mt-10" data-aos="fade-left">About me</h1>
         <div data-aos="fade-up">
             <div class=" text-gray-400 mt-4 ">
