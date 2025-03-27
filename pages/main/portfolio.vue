@@ -1,13 +1,34 @@
 <template>
-    <div class="px-8" >
+    <div class="px-8">
         <h1 class="text-4xl font-bold sm:mt-0 mt-10" data-aos="fade-left">Portfolio</h1>
-        <div class="flex items-center justify-center" v-if="!projects">
-            <span>Loading...</span>
+
+        <div class="flex gap-4 shadow-2xl py-5 mt-5" data-aos="fade-up">
+            <span 
+                class="cursor-pointer hover:bg-[#cca736ab] p-3 rounded-md" 
+                :class="{ 'bg-[#cca736ab]': SelectPage === 'projects' }"
+                @click="SelectPage = 'projects'"
+            >
+                Projects
+            </span>
+            <span 
+                class="p-3 cursor-pointer hover:bg-[#cca736ab] rounded-md" 
+                :class="{ 'bg-[#cca736ab]': SelectPage === 'FrontendMentor' }"
+                @click="SelectPage = 'FrontendMentor'"
+            >
+                Frontend Mentor Projects
+            </span>
         </div>
-        <div class="grid sm:grid-cols-3 grid-cols-2 items-center gap-6 justify-center mt-5" v-else data-aos="fade-up">
-            <div v-for="(item,index) in projects" :key="item.id" class="relative"  >
-                <img :src="item.img"@mouseover="show[index] = true"  @mouseleave="show[index] = false"  alt="" class="rounded-2xl h-56 object-cover hover:scale-110 hover:rotate-2 hover:opacity-50 transition-all hover:cursor-pointer" >
-                <UIcon  v-if="show[index]" name="heroicons:link" class="  w-10 h-10 text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 " />
+
+        <div  class="grid sm:grid-cols-3 grid-cols-2 items-center gap-6 justify-center mt-5"  v-if="filteredProjects.length" data-aos="fade-up">
+            <div v-for="(item, index) in filteredProjects" :key="index" class="relative" >
+                <a :href="item.link"  target="_blank" >
+                    <img 
+                        :src="item.img" 
+                        alt="Image" 
+                        loading="lazy"
+                        class="rounded-2xl h-56 object-cover hover:scale-110 hover:rotate-2 hover:opacity-50 transition-all hover:cursor-pointer"
+                    >
+                </a>
                 <div class="flex flex-col my-2">
                     <span>{{ item.title }}</span>
                     <span class="text-gray-500">Web development</span>
@@ -18,25 +39,34 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed,onMounted } from 'vue';
 import { useNuxtApp } from '#app';
 
 const { $supabase } = useNuxtApp();
-const projects = ref([]);
-let show=ref({})
-const fetchProjects = async () => {
-    try {
-        const { data, error } = await $supabase.from('Projects').select('*');
-        if (error) {
-            console.error("Error fetching projects:", error);
-        } else {
-            projects.value = data;
-        }
-    } catch (err) {
-        console.log("Unexpected error:", err);
-    } 
-};
+const SelectPage = ref('projects');
+const show = ref({});
 
-onMounted(fetchProjects);
-console.log(projects.value)
+
+const projects = ref([
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741795076/eco_nbva8q.jpg', title: "E-commerce Application" },
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741794939/Dashboard_frombb.jpg', title: "Education System" },
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741793015/Photo_1_q8e2dj.png', title: "Teramatech Company landing page" },
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741798315/GroupIcon.77a08625_exuubh.png', title: "Coaching Application" },
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741798037/Quiz_1_xpcuzp.png', title: "Simple Quiz App" },
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741797783/Yasuo_store_sprgp6.png', title: "Store Application" },
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741799050/book_mokhuz.png', title: "Book Shop Application" },
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741798912/Screenshot_2025-03-12_190037_akjyl0.png', title: "Finance Application" },
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741812170/Resume_hri1hx.jpg', title: "My old portfolio" },
+]);
+
+
+const FrontendMentorProjects = ref([
+    { 
+        img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1743073822/Screenshot_2025-03-27_130907_kauljb.png', 
+        title: "This is my profile on Frontend Mentor and iam solving a lot of challenges ",
+        link:'https://www.frontendmentor.io/profile/YoussefTarek80' 
+    },
+]);
+
+const filteredProjects = computed(() => SelectPage.value === 'projects' ? projects.value : FrontendMentorProjects.value);
 </script>
