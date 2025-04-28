@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-[#181818] rounded-3xl min-h-screen">
+    <div class="bg-[#181818] rounded-3xl h-auto pb-10">
         <MainLinks />
         <slot />
     </div>

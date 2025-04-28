@@ -42,7 +42,6 @@
 import { ref, computed,onMounted } from 'vue';
 import { useNuxtApp } from '#app';
 
-const { $supabase } = useNuxtApp();
 const SelectPage = ref('projects');
 const show = ref({});
 
