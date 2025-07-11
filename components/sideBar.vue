@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-[#181818] sm:w-96 w-full max-h-screen rounded-3xl " >
+    <header class="bg-[#181818] 2xl:w-96 w-full max-h-screen rounded-3xl " >
         <nav class="sm:p-20 p-5 flex sm:items-center flex-col gap-5" data-aos="fade-up">
             <div class="bg-[#2E2E2E] flex items-center justify-center rounded-3xl p-5 w-40 mx-auto ">
                 <img src="../assets/1689165533439.jfif" alt="" class="w-32 rounded-full">

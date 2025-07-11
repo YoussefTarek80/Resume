@@ -47,6 +47,7 @@ const show = ref({});
 
 
 const projects = ref([
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1752241127/Screenshot_2025-07-11_043820_wmihjk.png', title: "Jadarat",link:"https://jadarat.co/" },
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741795076/eco_nbva8q.jpg', title: "E-commerce Application" },
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741794939/Dashboard_frombb.jpg', title: "Education System" },
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741793015/Photo_1_q8e2dj.png', title: "Teramatech Company landing page" },

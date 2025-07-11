@@ -21,6 +21,11 @@ import { ref } from "vue";
 
 const experiences = ref([
     {
+        title:"TechlandBS Company",
+        date:"05/2025 - current",
+        description:`As a full-stack developer, I’ve continuously expanded my skill set, not only in front-end and back-end technologies but also by gaining valuable insights into business operations and client needs. This blend of technical and business knowledge allows me to build solutions that are both effective and aligned with real-world goals.`
+    },
+    {
         title:"Sure Global Technology Company",
         date:"2023 - 2024",
         description:`These experiences honed my skills in front-end development, backend integration, and database 
