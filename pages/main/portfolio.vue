@@ -8,7 +8,7 @@
                 :class="{ 'bg-[#cca736ab]': SelectPage === 'projects' }"
                 @click="SelectPage = 'projects'"
             >
-                Projects
+                Frontend Projects
             </span>
             <span 
                 class="p-3 cursor-pointer hover:bg-[#cca736ab] rounded-md" 
@@ -17,16 +17,23 @@
             >
                 Frontend Mentor Projects
             </span>
+            <span 
+                class="p-3 cursor-pointer hover:bg-[#cca736ab] rounded-md" 
+                :class="{ 'bg-[#cca736ab]': SelectPage === 'BackendProjects' }"
+                @click="SelectPage = 'BackendProjects'"
+            >
+                Backend Projects
+            </span>
         </div>
 
         <div  class="grid sm:grid-cols-3 grid-cols-2 items-center gap-6 justify-center mt-5"  v-if="filteredProjects.length" data-aos="fade-up">
-            <div v-for="(item, index) in filteredProjects" :key="index" class="relative" >
-                <a :href="item.link"  target="_blank" >
+            <div v-for="(item, index) in filteredProjects" :key="index" class="relative w-full" >
+                <a :href="item.link"  target="_blank"  class="w-full" >
                     <img 
                         :src="item.img" 
                         alt="Image" 
                         loading="lazy"
-                        class="rounded-2xl h-56 object-cover hover:scale-110 hover:rotate-2 hover:opacity-50 transition-all hover:cursor-pointer"
+                        class="rounded-2xl w-full sm:h-56 object-cover hover:scale-110 hover:rotate-2 hover:opacity-50 transition-all hover:cursor-pointer bg-black/50 "
                     >
                 </a>
                 <div class="flex flex-col my-2">
@@ -68,5 +75,33 @@ const FrontendMentorProjects = ref([
     },
 ]);
 
-const filteredProjects = computed(() => SelectPage.value === 'projects' ? projects.value : FrontendMentorProjects.value);
+const BackendProjects=ref([
+    { 
+        img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1753350451/360_F_299621124_vutDKbNwRJG6poJRQQIMYfsc4tJCTO5E_rtwafi.jpg', 
+        title: "NileGarden Ecommerce",
+        link:'' 
+    },
+    { 
+        img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1753350451/360_F_299621124_vutDKbNwRJG6poJRQQIMYfsc4tJCTO5E_rtwafi.jpg',  
+        title: "Jadarat System",
+        link:'' 
+    },
+    { 
+        img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1753350451/360_F_299621124_vutDKbNwRJG6poJRQQIMYfsc4tJCTO5E_rtwafi.jpg',  
+        title: "ERB System for PT Group company",
+        link:'' 
+    },
+    { 
+        img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1753350451/360_F_299621124_vutDKbNwRJG6poJRQQIMYfsc4tJCTO5E_rtwafi.jpg',  
+        title: "Real State project ",
+        link:'' 
+    },
+])
+
+const filteredProjects = computed(() => {
+    if(SelectPage.value==='projects') return projects.value;
+    else if(SelectPage.value==='FrontendMentor') return FrontendMentorProjects.value;
+    else return BackendProjects.value;
+}
+);
 </script>
