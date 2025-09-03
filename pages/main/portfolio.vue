@@ -54,7 +54,9 @@ const show = ref({});
 
 
 const projects = ref([
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1756911008/Screenshot_2025-09-03_054944_w1xlaf.png', title: "Elsafaa Company" ,link:"https://el-safa-company.vercel.app/"},
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1752241127/Screenshot_2025-07-11_043820_wmihjk.png', title: "Jadarat",link:"https://jadarat.co/" },
+    { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1756910816/Screenshot_2025-09-03_054407_sdts0e.png', title: "NileGarden Dashboard",link:"https://nile-garden-dashboard.vercel.app/" },
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741795076/eco_nbva8q.jpg', title: "E-commerce Application" },
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741794939/Dashboard_frombb.jpg', title: "Education System" },
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741793015/Photo_1_q8e2dj.png', title: "Teramatech Company landing page" },
@@ -64,6 +66,9 @@ const projects = ref([
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741799050/book_mokhuz.png', title: "Book Shop Application" },
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741798912/Screenshot_2025-03-12_190037_akjyl0.png', title: "Finance Application" },
     { img: 'https://res.cloudinary.com/ddv3ockma/image/upload/v1741812170/Resume_hri1hx.jpg', title: "My old portfolio" },
+    
+
+    
 ]);
 
 
